@@ -1,0 +1,3 @@
+<app-user *ngFor="let user of users" [user]="user" (UserIdUp)="getUserPost($event)"></app-user>
+
+<app-post *ngFor="let post of posts" [id]="userPostId"></app-post>
