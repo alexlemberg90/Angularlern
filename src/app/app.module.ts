@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UsersInfoComponent } from './users-info/users-info.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,10 @@ import { UsersInfoComponent } from './users-info/users-info.component';
     UsersInfoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([{
+      path: 'users', component: UsersInfoComponent
+    }])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {users} from '../../data/usersArr';
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-users-info',
@@ -8,7 +9,7 @@ import {users} from '../../data/usersArr';
 })
 export class UsersInfoComponent implements OnInit {
 
-  users: any[] = users;
+  users: User[] = users;
 
   constructor() { }
 
