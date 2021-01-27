@@ -15,11 +15,10 @@ export class UsersComponent implements OnInit {
   userPostId: number;
   posts: Post[];
 
-  constructor(private userService: UserService, private postService: PostService) {
+  constructor(private postService: PostService) {
   }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(value => this.users = value);
     this.postService.getPostByUserId(this.userPostId).subscribe(value => this.posts = value);
   }
     getUserPost(user: User): void {
