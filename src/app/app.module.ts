@@ -11,8 +11,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {UserResolveService} from './services/resolve/user-resolve.service';
 
 const routers: Routes = [{
-  path: '', component : UsersComponent , resolve : {usersSer: UserResolveService}
-}];
+  path: '', component : UsersComponent , resolve : {usersData: UserResolveService},
+},
+  {path: 'user/:id/posts', component: PostsComponent}
+];
 
 @NgModule({
   declarations: [

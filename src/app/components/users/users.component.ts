@@ -3,6 +3,7 @@ import {User} from '../../../models/User';
 import {UserService} from '../../services/user.service';
 import {PostService} from '../../services/post.service';
 import {Post} from '../../../models/Post';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +16,8 @@ export class UsersComponent implements OnInit {
   userPostId: number;
   posts: Post[];
 
-  constructor(private postService: PostService) {
+  constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
+    this.activatedRoute.data.subscribe(value => this.users = value.usersData);
   }
 
   ngOnInit(): void {

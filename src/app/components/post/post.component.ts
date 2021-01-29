@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../../models/Post';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -11,9 +12,12 @@ export class PostComponent implements OnInit {
   @Input()
     post: Post;
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  goBack(): void {
+    this.router.navigate(['']);
+  }
 }

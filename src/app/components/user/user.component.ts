@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../../models/User';
 import {EventEmitter} from '@angular/core';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +16,7 @@ export class UserComponent implements OnInit {
   @Output()
   UserIdUp = new EventEmitter<User>();
 
-  constructor() { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -24,4 +25,7 @@ export class UserComponent implements OnInit {
     this.UserIdUp.emit(user);
   }
 
+  goTo(): void {
+    this.router.navigate(['user/' + this.user.id + '/posts'], {relativeTo: this.activatedRoute, state: this.user});
+  }
 }
